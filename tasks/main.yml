@@ -1,0 +1,41 @@
+- sudo: yes
+  rpm_key:
+    key: "{{ nginx_signing_key }}"
+
+
+- name: add nginx repository
+  sudo: yes
+  yum_repository: 
+    name: nginx
+    baseurl: "{{ nginx_base_repository }}"
+    description: nginx repository
+    enabled: yes
+    gpgcheck: yes
+
+- sudo: yes
+  package:
+    name: nginx
+    state: present
+  notify: start nginx
+
+- name: override default home page
+  sudo: yes
+  copy:
+    content: |
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Hello world.</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style>body {font: normal 18px Arial; margin: 4em;}</style>
+      </head>
+      <body>
+        <p>
+          YAML supports multi-line blocks using specific indicators.<br />
+          Read more at <a href="https://yaml-multiline.info">YAML-multiline.info</a>.
+        </p>
+      </body>
+      </html>
+    dest: /usr/share/nginx/html/index.html
+
+

@@ -1,0 +1,20 @@
+---
+galaxy_info:
+  role_name: nginx draft
+  author: Niko Smeds
+  description: An ugly nginx role that could use some linting
+
+  platforms:
+  - name: EL
+    versions:
+    - 7
+
+  galaxy_tags:
+    - nginx
+    - web
+    - server
+    - draft
+    - education
+    - lint
+
+dependencies: []
