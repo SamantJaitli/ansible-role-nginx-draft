@@ -1,0 +1,18 @@
+---
+language: python
+python: "2.7"
+
+install: pip install ansible
+
+script: ansible-playbook ansible-lint ./
+script: ansible-playbook yammlint ./
+
+- hosts: all
+  become: true
+  tasks:
+       - yum:
+               name: ansible
+       - yum:
+               name: ansible-lint
+       - yum:
+               name: yamllint

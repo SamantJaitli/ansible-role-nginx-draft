@@ -5,9 +5,9 @@ galaxy_info:
   description: An ugly nginx role that could use some linting
 
   platforms:
-  - name: EL
-    versions:
-    - 7
+    - name: EL
+      versions:
+      - 7
 
   galaxy_tags:
     - nginx
