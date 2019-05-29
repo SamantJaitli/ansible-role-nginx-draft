@@ -2,9 +2,11 @@
 language: python
 python: "2.7"
 
-install: yum install ansible
-install: yum install ansible-lint
-install: yum install yamllint
+install:
+   - pip install ansible
+   - pip install ansible-lint
+   - pip install yamllint
 
-script: ansible-playbook ansible_lint ./
-script: ansible-playbook yamllint ./
+script:
+   - ansible-playbook ansible-lint ./
+   - ansible-playbook yamllint ./
